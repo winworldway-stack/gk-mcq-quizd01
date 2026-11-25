@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ආණ්ඩුක්‍රම ව්‍යවස්ථාව සහ කාලීන තොරතුරු - MCQ පුහුණු යෙදුම</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Noto Sans Sinhala & Inter Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sinhala: ['"Noto Sans Sinhala"', '"Inter"', 'sans-serif'],
+            sans: ['"Noto Sans Sinhala"', '"Inter"', 'sans-serif'],
+          },
+          colors: {
+            legalNavy: '#0f172a',
+            legalGold: '#b45309',
+            legalSlate: '#1e293b',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body {
+      font-family: 'Noto Sans Sinhala', 'Inter', sans-serif;
+      line-height: 1.75;
+    }
+
+    .option-card {
+      transition: transform 0.14s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .option-card:hover:not(:disabled) {
+      transform: translateY(-1px);
+    }
+
+    .fade-in {
+      animation: fadeIn 0.28s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Custom scrollbar for question palette */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #94a3b8;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col">
+  <!-- Top Header -->
+  <header class="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white border-b border-amber-500/30 shadow-md sticky top-0 z-30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-400/50 flex items-center justify-center text-amber-300 font-bold text-lg shadow-inner shrink-0">
+          ⚖️
+        </div>
+        <div>
+          <h1 class="text-base sm:text-xl font-bold tracking-tight text-white">
+            ආණ්ඩුක්‍රම ව්‍යවස්ථාව සහ කාලීන තොරතුරු — MCQ
+          </h1>
+          <p class="text-xs text-slate-300">
+            LL.B &amp; Law Entrance 2027 • ශ්‍රී ලංකා ආණ්ඩුක්‍රම ව්‍යවස්ථා පරිච්ඡේද සහ කාලීන තොරතුරු
+          </p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button
+          id="themeToggleBtn"
+          type="button"
+          class="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-xs sm:text-sm font-medium transition flex items-center gap-1.5"
+          title="තේමාව මාරු කරන්න"
+        >
+          <span id="themeIcon">🌙</span>
+          <span id="themeLabel" class="hidden sm:inline">Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-6">
+    <!-- Setup / Filter Control Panel -->
+    <section id="setupPanel" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-6 shadow-sm mb-6 fade-in">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+        <div>
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300 mb-1.5">
+            නීති ප්‍රවේශ පුහුණු වේදිකාව
+          </span>
+          <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+            විෂය කාණ්ඩය සහ පුහුණු වටය තෝරන්න
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-0.5">
+            සටහන් පත්‍රිකාවේ මුල් ප්‍රශ්න 10 ඇතුළුව ව්‍යවස්ථා පරිච්ඡේද සහ කාලීන තොරතුරු ඇසුරින් සැකසූ සම්පූර්ණ බහුවරණ ප්‍රශ්න සංග්‍රහය.
+          </p>
+        </div>
+
+        <!-- Mode Selector: All vs 20 Practice -->
+        <div class="flex flex-wrap items-center gap-2 bg-slate-100 dark:bg-slate-800 p-1.5 rounded-xl self-start lg:self-auto">
+          <button
+            id="modeAllBtn"
+            type="button"
+            onclick="setPracticeMode('all')"
+            class="px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition bg-blue-900 text-white shadow-sm"
+          >
+            සියලු ප්‍රශ්න
+          </button>
+          <button
+            id="mode20Btn"
+            type="button"
+            onclick="setPracticeMode('20')"
+            class="px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition text-slate-700 dark:text-slate-300 hover:bg-white/60 dark:hover:bg-slate-700"
+          >
+            ප්‍රශ්න 20ක පුහුණු වටය
+          </button>
+        </div>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex flex-wrap gap-2" role="tablist" aria-label="ප්‍රශ්න කාණ්ඩ">
+          <button
+            id="cat-all"
+            type="button"
+            onclick="selectCategory('all')"
+            class="cat-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border transition bg-amber-600 text-white border-amber-600 shadow-sm"
+          >
+            සියල්ල (<span id="count-all">0</span>)
+          </button>
+          <button
+            id="cat-constitution"
+            type="button"
+            onclick="selectCategory('constitution')"
+            class="cat-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border transition bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700 hover:border-amber-500"
+          >
+            ආණ්ඩුක්‍රම ව්‍යවස්ථාව (<span id="count-constitution">0</span>)
+          </button>
+          <button
+            id="cat-current"
+            type="button"
+            onclick="selectCategory('current')"
+            class="cat-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border transition bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700 hover:border-amber-500"
+          >
+            කාලීන තොරතුරු (<span id="count-current">0</span>)
+          </button>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button
+            type="button"
+            onclick="shuffleAndStart()"
+            class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition flex items-center gap-1.5"
+          >
+            <span>🔀</span>
+            <span>ප්‍රශ්න මාරු කර අරඹන්න</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Active Quiz Workspace -->
+    <div id="quizWorkspace" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Left / Main Question Column -->
+      <section class="lg:col-span-8 space-y-5">
+        <!-- Progress & Live Score Bar -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm font-medium mb-2.5">
+            <div class="flex items-center gap-2">
+              <span id="qCounterBadge" class="px-2.5 py-1 rounded-lg bg-blue-950 text-white dark:bg-blue-800 font-semibold">
+                ප්‍රශ්නය 1 / 1
+              </span>
+              <span id="qCategoryBadge" class="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-900 dark:bg-amber-900/40 dark:text-amber-200 font-semibold">
+                ආණ්ඩුක්‍රම ව්‍යවස්ථාව
+              </span>
+            </div>
+
+            <div class="flex items-center gap-3 text-slate-700 dark:text-slate-300">
+              <span>✅ නිවැරදි: <strong id="liveCorrect" class="text-emerald-600 dark:text-emerald-400">0</strong></span>
+              <span>❌ වැරදි: <strong id="liveWrong" class="text-rose-600 dark:text-rose-400">0</strong></span>
+            </div>
+          </div>
+
+          <div class="w-full h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+            <div id="progressBar" class="h-full bg-gradient-to-r from-blue-800 via-blue-600 to-amber-500 rounded-full transition-all duration-300" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <!-- Question Card -->
+        <article id="questionCard" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 sm:p-7 shadow-sm fade-in">
+          <div class="flex items-start justify-between gap-3 mb-4">
+            <span id="qSourceTag" class="text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full">
+              සටහන් ඇසුරින්
+            </span>
+            <span id="qAnsweredStatus" class="text-xs font-semibold text-slate-400"></span>
+          </div>
+
+          <h3 id="questionText" class="text-base sm:text-xl font-bold text-slate-900 dark:text-white leading-relaxed mb-6">
+            ප්‍රශ්නය පූරණය වෙමින් පවතී...
+          </h3>
+
+          <!-- Options Container -->
+          <div id="optionsContainer" class="space-y-3"></div>
+
+          <!-- Immediate Explanation Box -->
+          <div id="explanationBox" class="hidden mt-6 p-4 sm:p-5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border-l-4 border-amber-500 fade-in">
+            <div class="flex items-center gap-2 mb-1.5">
+              <span id="feedbackBadge" class="text-xs sm:text-sm font-bold px-2.5 py-0.5 rounded-md"></span>
+              <span class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">පැහැදිලි කිරීම සහ ව්‍යවස්ථා/සටහන් යොමුව</span>
+            </div>
+            <p id="explanationText" class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed"></p>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="mt-7 pt-5 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+            <button
+              id="prevBtn"
+              type="button"
+              onclick="prevQuestion()"
+              class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 disabled:opacity-40 disabled:cursor-not-allowed transition"
+            >
+              ← පෙර ප්‍රශ්නය
+            </button>
+
+            <div class="flex flex-wrap items-center gap-2.5">
+              <button
+                id="finishEarlyBtn"
+                type="button"
+                onclick="showResults()"
+                class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border border-amber-600/40 text-amber-700 dark:text-amber-300 hover:bg-amber-50 dark:hover:bg-amber-950/40 transition"
+              >
+                ප්‍රතිඵල බලන්න
+              </button>
+
+              <button
+                id="nextBtn"
+                type="button"
+                onclick="nextQuestion()"
+                class="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-blue-900 hover:bg-blue-800 text-white shadow-sm transition flex items-center gap-1.5"
+              >
+                <span id="nextBtnLabel">ඊළඟ ප්‍රශ්නය →</span>
+              </button>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Right Sidebar: Question Navigator -->
+      <aside class="lg:col-span-4">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 sm:p-5 shadow-sm sticky top-20">
+          <div class="flex items-center justify-between mb-3">
+            <h4 class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">ප්‍රශ්න සිතියම</h4>
+            <span id="paletteSummary" class="text-xs text-slate-500 dark:text-slate-400">0 පිළිතුරු දී ඇත</span>
+          </div>
+
+          <!-- Legend -->
+          <div class="flex flex-wrap gap-3 text-[11px] text-slate-600 dark:text-slate-400 mb-3.5 pb-3 border-b border-slate-100 dark:border-slate-800">
+            <span class="flex items-center gap-1"><span class="w-3 h-3 rounded bg-emerald-500 inline-block"></span> නිවැරදි</span>
+            <span class="flex items-center gap-1"><span class="w-3 h-3 rounded bg-rose-500 inline-block"></span> වැරදි</span>
+            <span class="flex items-center gap-1"><span class="w-3 h-3 rounded bg-blue-900 inline-block"></span> වත්මන්</span>
+            <span class="flex items-center gap-1"><span class="w-3 h-3 rounded bg-slate-200 dark:bg-slate-700 inline-block"></span> ඉතිරි</span>
+          </div>
+
+          <!-- Grid of Question Numbers -->
+          <div id="questionPalette" class="grid grid-cols-6 sm:grid-cols-8 lg:grid-cols-5 gap-2 max-h-72 overflow-y-auto pr-1"></div>
+
+          <!-- Quick Restart -->
+          <button
+            type="button"
+            onclick="restartCurrentSet()"
+            class="mt-4 w-full py-2.5 px-4 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 transition"
+          >
+            🔄 මෙම වටය නැවත අරඹන්න
+          </button>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Final Score Summary Modal / View -->
+    <section id="resultsSection" class="hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-md fade-in">
+      <div class="text-center max-w-2xl mx-auto">
+        <div id="resultEmoji" class="text-5xl mb-3">🏆</div>
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-900 dark:bg-amber-900/40 dark:text-amber-300 mb-2">
+          පුහුණු වටයේ ප්‍රතිඵල සාරාංශය
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2">
+          ඔබගේ ලකුණු වාර්තාව
+        </h2>
+        <p id="resultMessage" class="text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-6"></p>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-7">
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <div class="text-xs text-slate-500 dark:text-slate-400">මුළු ප්‍රශ්න</div>
+            <div id="resTotal" class="text-2xl font-bold text-slate-900 dark:text-white mt-1">0</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60">
+            <div class="text-xs text-emerald-700 dark:text-emerald-300">නිවැරදි පිළිතුරු</div>
+            <div id="resCorrect" class="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mt-1">0</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800/60">
+            <div class="text-xs text-rose-700 dark:text-rose-300">වැරදි / මඟහැරුණු</div>
+            <div id="resWrong" class="text-2xl font-bold text-rose-600 dark:text-rose-400 mt-1">0</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60">
+            <div class="text-xs text-amber-800 dark:text-amber-300">නිරවද්‍යතාවය</div>
+            <div id="resAccuracy" class="text-2xl font-bold text-amber-700 dark:text-amber-400 mt-1">0%</div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <button
+            id="retryWrongBtn"
+            type="button"
+            onclick="retryIncorrectQuestions()"
+            class="px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold bg-rose-600 hover:bg-rose-700 text-white shadow-sm transition"
+          >
+            ❌ වැරදුණු ප්‍රශ්න පමණක් නැවත කරන්න (<span id="wrongCountBtn">0</span>)
+          </button>
+
+          <button
+            type="button"
+            onclick="restartCurrentSet()"
+            class="px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold bg-blue-900 hover:bg-blue-800 text-white shadow-sm transition"
+          >
+            🔄 මුල සිට නැවත අරඹන්න
+          </button>
+
+          <button
+            type="button"
+            onclick="reviewAnswers()"
+            class="px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition"
+          >
+            📖 පිළිතුරු සමාලෝචනය
+          </button>
+        </div>
+      </div>
+
+      <!-- Detailed Review List (Hidden until clicked) -->
+      <div id="reviewList" class="hidden mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 space-y-4"></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-4 px-4 text-center text-xs text-slate-500 dark:text-slate-400">
+    LL.B &amp; Law Entrance (2027) • ආණ්ඩුක්‍රම ව්‍යවස්ථා පරිච්ඡේද සහ කාලීන තොරතුරු MCQ පුහුණු යෙදුම
+  </footer>
+
+  <script>
+    /**
+     * Complete MCQ Question Bank derived from the uploaded PDF:
+     * "ආණ්ඩුක්‍රම ව්‍යවස්ථා පරිච්ඡේද සහ කාලීන තොරතුරු - සම්පූර්ණ පිළිතුරු සංග්‍රහය"
+     * Categories: 'constitution' (ආණ්ඩුක්‍රම ව්‍යවස්ථාව) | 'current' (කාලීන තොරතුරු)
+     */
+    const QUESTIONS_DATA = [
+      // --- 10 Existing MCQs from PDF (Pages 6-7) ---
+      {
+        id: 1,
+        category: 'constitution',
+        source: 'පිටුව 6 • 1 වන MCQ',
+        question: '1978 ශ්‍රී ලංකා ආණ්ඩුක්‍රම ව්‍යවස්ථාවේ 2 වන වගන්තිය මඟින් ශ්‍රී ලංකාව කුමන ආකාරයේ රාජ්‍යයක් ලෙස දක්වා තිබේද?',
+        options: {
+          A: 'සංයුක්ත රාජ්‍යයකි (Federal State)',
+          B: 'ඒකීය රාජ්‍යයකි (Unitary State)',
+          C: 'සන්ධානගත රාජ්‍යයකි (Confederation)',
+          D: 'ධනේශ්වර රාජ්‍යයකි'
+        },
+        answer: 'B',
+        explanation: '2 වන වගන්තිය මඟින් ශ්‍රී ලංකා ජනරජය ඒකීය රාජ්‍යයක් (Unitary State) බව දක්වා ඇති අතර, එය වෙනස් කිරීමට 83 වන වගන්තිය අනුව 2/3 බහුතරයට අමතරව ජනමත විචාරණයක්ද අවශ්‍ය වේ.'
+      },
+      {
+        id: 2,
+        category: 'constitution',
+        source: 'පිටුව 6 • 2 වන MCQ',
+        question: 'ආණ්ඩුක්‍රම ව්‍යවස්ථාව අර්ථ නිරූපණය කිරීමේ පරම සහ සුවිශේෂී අධිකරණ බලය ව්‍යවස්ථාවේ 125 වන වගන්තිය මඟින් පවරා ඇත්තේ කාහටද?',
+        options: {
+          A: 'අභියාචනාධිකරණයට',
+          B: 'පාර්ලිමේන්තුවට',
+          C: 'ශ්‍රේෂ්ඨාධිකරණයට',
+          D: 'නීතිපතිවරයාට'
+        },
+        answer: 'C',
+        explanation: '125 වන වගන්තිය අනුව ආණ්ඩුක්‍රම ව්‍යවස්ථාව නිල වශයෙන් අර්ථ නිරූපණය කිරීමේ (Constitutional Interpretation) තනි සහ සුවිශේෂී බලය ඇත්තේ ශ්‍රේෂ්ඨාධිකරණයට පමණි.'
+      },
+      {
+        id: 3,
+        category: 'constitution',
+        source: 'පිටුව 6 • 3 වන MCQ',
+        question: 'මූලික අයිතිවාසිකම් පරිච්ඡේදයේ (III වන පරිච්ඡේදය) අන්තර්ගත කුමන වගන්ති දෙක කිසිදු අවස්ථාවකදී සීමා කළ නොහැකි පරම අයිතිවාසිකම් (Absolute Rights) වේද?',
+        options: {
+          A: '10 සහ 11 වගන්ති',
+          B: '12 සහ 14 වගන්ති',
+          C: '13 සහ 14 වගන්ති',
+          D: '10 සහ 12 වගන්ති'
+        },
+        answer: 'A',
+        explanation: 'III වන පරිච්ඡේදයේ 10 වන වගන්තිය (සිතිවිලි, හෘද සාක්ෂිය සහ ආගමික නිදහස) සහ 11 වන වගන්තිය (වධහිංසාවලින් නිදහස) සීමා කළ නොහැකි පරම අයිතිවාසිකම් (Absolute Rights) වේ.'
+      },
+      {
+        id: 4,
+        category: 'constitution',
+        source: 'පිටුව 6 • 4 වන MCQ',
+        question: "1978 ව්‍යවස්ථාවට 'පළාත් සභා' සම්බන්ධ XVIIA පරිච්ඡේදය ඇතුළත් කරන ලද්දේ කුමන ව්‍යවස්ථා සංශෝධනය මඟින්ද?",
+        options: {
+          A: '16 වන සංශෝධනය',
+          B: '13 වන සංශෝධනය',
+          C: '19 වන සංශෝධනය',
+          D: '18 වන සංශෝධනය'
+        },
+        answer: 'B',
+        explanation: '1987 අංක 37 දරන 13 වන ආණ්ඩුක්‍රම ව්‍යවස්ථා සංශෝධනය මඟින් XVIIA පරිච්ඡේදය (154A වගන්තිය) සහ පළාත් සභා ක්‍රමය හඳුන්වා දෙන ලදී.'
+      },
+      {
+        id: 5,
+        category: 'constitution',
+        source: 'පිටුව 6 • 5 වන MCQ',
+        question: '21 වන ව්‍යවස්ථා සංශෝධනය (2022) මඟින් නැවත ස්ථාපිත කරන ලද, ස්වාධීන කොමිෂන් සභා සඳහා සාමාජිකයින් නිර්දේශ කරනු ලබන උත්තරීතර ආයතනය කුමක්ද?',
+        options: {
+          A: 'පාර්ලිමේන්තු සභාව',
+          B: 'රාජ්‍ය සේවා කොමිෂන් සභාව',
+          C: 'ව්‍යවස්ථාදායක සභාව (Constitutional Council)',
+          D: 'අධිකරණ සේවා කොමිෂන් සභාව'
+        },
+        answer: 'C',
+        explanation: '20 වන සංශෝධනයෙන් අහෝසි කර තිබූ ව්‍යවස්ථාදායක සභාව (Constitutional Council - සාමාජිකයින් 10ක්) 21 වන සංශෝධනය මඟින් නැවත ස්ථාපිත කරන ලදී.'
+      },
+      {
+        id: 6,
+        category: 'constitution',
+        source: 'පිටුව 7 • 6 වන MCQ',
+        question: '1978 ව්‍යවස්ථාවේ 30(2) වගන්තිය අනුව ජනාධිපතිවරයෙකුගේ ධූර කාලය වසර කීයකට සීමා කර තිබේද?',
+        options: {
+          A: 'වසර 6 ක්',
+          B: 'වසර 5 ක්',
+          C: 'වසර 4 ක්',
+          D: 'වසර 7 ක්'
+        },
+        answer: 'B',
+        explanation: '30(2) වගන්තිය (19 සහ 21 වන සංශෝධන අනුව) ජනාධිපති ධූර කාලය වසර 5 කට සීමා කරන අතර, දෙවරකට වඩා තේරී පත්වීම ද තහනම් කරයි.'
+      },
+      {
+        id: 7,
+        category: 'constitution',
+        source: 'පිටුව 7 • 7 වන MCQ',
+        question: 'ව්‍යවස්ථාවේ XVII වන පරිච්ඡේදයේ 148 වන වගන්තියට අනුව පොදු මූල්‍ය පරිපාලනය (Control over public finance) පිළිබඳ පරම බලය හිමිවන්නේ කාහටද?',
+        options: {
+          A: 'විධායක ජනාධිපතිවරයාට',
+          B: 'මුදල් අමාත්‍යවරයාට',
+          C: 'පාර්ලිමේන්තුවට',
+          D: 'මහා භාණ්ඩාගාරයට'
+        },
+        answer: 'C',
+        explanation: '148 වන වගන්තියට අනුව රාජ්‍ය මූල්‍ය පිළිබඳ පරම පාලනය පාර්ලිමේන්තුව සතු වේ. පාර්ලිමේන්තු අනුමැතියකින් තොරව බදු අය කිරීම හෝ පොදු මුදල් වැය කිරීම කළ නොහැක.'
+      },
+      {
+        id: 8,
+        category: 'constitution',
+        source: 'පිටුව 7 • 8 වන MCQ',
+        question: "ව්‍යවස්ථාවේ 18 වන වගන්තියට අනුව ශ්‍රී ලංකාවේ 'සම්බන්ධීකරණ භාෂාව' (Link Language) ලෙස පිළිගෙන ඇත්තේ කුමන භාෂාවද?",
+        options: {
+          A: 'සිංහල භාෂාව',
+          B: 'දෙමළ භාෂාව',
+          C: 'ඉංග්‍රීසි භාෂාව',
+          D: 'පාලි භාෂාව'
+        },
+        answer: 'C',
+        explanation: '18(1) වගන්තියට අනුව සිංහල සහ දෙමළ රාජ්‍ය භාෂා වන අතර, 18(3) වගන්තිය අනුව ඉංග්‍රීසි භාෂාව සම්බන්ධීකරණ භාෂාව (Link Language) වේ.'
+      },
+      {
+        id: 9,
+        category: 'constitution',
+        source: 'පිටුව 7 • 9 වන MCQ',
+        question: '1972 පළමු ජනරජ ව්‍යවස්ථාව නිල වශයෙන් අවලංගු (Repeal) කරන ලද්දේ 1978 ව්‍යවස්ථාවේ කුමන පරිච්ඡේදය මඟින්ද?',
+        options: {
+          A: 'XXII වන පරිච්ඡේදය',
+          B: 'XXIII වන පරිච්ඡේදය (171 වගන්තිය)',
+          C: 'XXIV වන පරිච්ඡේදය',
+          D: 'XXI වන පරිච්ඡේදය'
+        },
+        answer: 'B',
+        explanation: 'XXIII වන පරිච්ඡේදයේ 171 වන වගන්තිය මඟින් 1972 පළමු ජනරජ ව්‍යවස්ථාව අවලංගු (Repeal) කරන ලදී.'
+      },
+      {
+        id: 10,
+        category: 'constitution',
+        source: 'පිටුව 7 • 10 වන MCQ',
+        question: "පරිපාලනමය අකටයුතුකම් පිළිබඳ විමර්ශනය කර සහන සැලසීම සඳහා පිහිටුවා ඇති 'ඔම්බුඩ්ස්මන්' (පාර්ලිමේන්තු කොමසාරිස්) තනතුර දක්වා ඇත්තේ කුමන පරිච්ඡේදයේද?",
+        options: {
+          A: 'XIX වන පරිච්ඡේදය (156 වගන්තිය)',
+          B: 'XVIII වන පරිච්ඡේදය',
+          C: 'XVII වන පරිච්ඡේදය',
+          D: 'XX වන පරිච්ඡේදය'
+        },
+        answer: 'A',
+        explanation: 'XIX වන පරිච්ඡේදයේ 156 වන වගන්තිය යටතේ පරිපාලන කටයුතු පිළිබඳ පාර්ලිමේන්තු කොමසාරිස්වරයා / ඔම්බුඩ්ස්මන්වරයා පත් කෙරේ.'
+      },
+
+      // --- Additional Constitutional Chapters & Articles MCQs (Pages 1-5 & 8-9) ---
+      {
+        id: 11,
+        category: 'constitution',
+        source: 'පිටුව 1 & 8 • 3 වන වගන්තිය',
+        question: "1978 ව්‍යවස්ථාවේ 3 වන වගන්තිය අනුව 'ජනතා ස්වෛරීභාවය' (Sovereignty) තුළ අන්තර්ගත මූලික නෛතික අංග තුන මොනවාද?",
+        options: {
+          A: 'ව්‍යවස්ථාදායක, විධායක සහ පළාත් සභා බලතල',
+          B: 'පාලන බලතල, මූලික අයිතිවාසිකම් සහ ඡන්ද බලය',
+          C: 'රාජ්‍ය භාෂා, මූලික යුතුකම් සහ ස්වෛරීභාවය',
+          D: 'අධිකරණ බලය, මූල්‍ය පාලනය සහ පුරවැසිභාවය'
+        },
+        answer: 'B',
+        explanation: '3 වන වගන්තිය අනුව ස්වෛරීභාවයට පාලන බලතල (Powers of Government), මූලික අයිතිවාසිකම් (Fundamental Rights) සහ ඡන්ද බලය (The Franchise) ඇතුළත් වේ.'
+      },
+      {
+        id: 12,
+        category: 'constitution',
+        source: 'පිටුව 1 • 4 වන වගන්තිය',
+        question: '4 වන වගන්තිය අනුව ජනතාවගේ ව්‍යවස්ථාදායක බලය සහ විධායක බලය ක්‍රියාත්මක කරනු ලබන්නේ පිළිවෙලින් කවුරුන් විසින්ද?',
+        options: {
+          A: 'ජනාධිපතිවරයා සහ පාර්ලිමේන්තුව විසින්',
+          B: 'පාර්ලිමේන්තුව (සහ ඇතැම් විට ජනමත විචාරණයකදී ජනතාව) සහ ජනාධිපතිවරයා විසින්',
+          C: 'අග්‍රාමාත්‍යවරයා සහ අමාත්‍ය මණ්ඩලය විසින්',
+          D: 'ශ්‍රේෂ්ඨාධිකරණය සහ පාර්ලිමේන්තුව විසින්'
+        },
+        answer: 'B',
+        explanation: '4 වන වගන්තිය අනුව ව්‍යවස්ථාදායක බලය පාර්ලිමේන්තුව සහ ඇතැම් අවස්ථාවල ජනමත විචාරණයකදී ජනතාව මඟින්ද, විධායක බලය ජනාධිපතිවරයා මඟින්ද ක්‍රියාත්මක වේ.'
+      },
+      {
+        id: 13,
+        category: 'constitution',
+        source: 'පිටුව 1 • 5 වන වගන්තිය',
+        question: '5 වන වගන්තියට අනුව ශ්‍රී ලංකා ජනරජයේ භූමිය සමන්විත වන්නේ පළාත් කීයකින් සහ වර්තමානයේ පරිපාලන දිස්ත්‍රික්ක කීයකින්ද?',
+        options: {
+          A: 'පළාත් 8 ක් සහ දිස්ත්‍රික්ක 24 ක්',
+          B: 'පළාත් 9 ක් සහ දිස්ත්‍රික්ක 25 ක්',
+          C: 'පළාත් 9 ක් සහ දිස්ත්‍රික්ක 22 ක්',
+          D: 'පළාත් 7 ක් සහ දිස්ත්‍රික්ක 25 ක්'
+        },
+        answer: 'B',
+        explanation: '5 වන වගන්තිය අනුව ශ්‍රී ලංකා ජනරජයේ භූමිය පළාත් 9 කින් සහ වර්තමානය වන විට පරිපාලන දිස්ත්‍රික්ක 25 කින් සමන්විත වේ.'
+      },
+      {
+        id: 14,
+        category: 'constitution',
+        source: 'පිටුව 1 • 9 වන වගන්තිය',
+        question: 'II වන පරිච්ඡේදයේ 9 වන වගන්තිය අනුව ශ්‍රී ලංකා ජනරජය බුද්ධාගමට ලබා දිය යුතු ස්ථානය කුමක්ද?',
+        options: {
+          A: 'සම තැන',
+          B: 'ප්‍රමුඛස්ථානය',
+          C: 'රාජ්‍ය ආගම ලෙස පිළිගැනීම',
+          D: 'ප්‍රාදේශීය ප්‍රමුඛතාව'
+        },
+        answer: 'B',
+        explanation: '9 වන වගන්තිය අනුව ශ්‍රී ලංකා ජනරජය බුද්ධාගමට ප්‍රමුඛස්ථානය දිය යුතු අතර, බුද්ධ ශාසනය සුරැකීම සහ පෝෂණය කිරීම රජයේ වගකීම වේ.'
+      },
+      {
+        id: 15,
+        category: 'constitution',
+        source: 'පිටුව 1 • 17 & 126 වගන්ති',
+        question: 'විධායක හෝ පරිපාලන ක්‍රියාවන් නිසා මූලික අයිතිවාසිකම් උල්ලංඝනය වීමකදී 17 වන වගන්තිය යටතේ ශ්‍රේෂ්ඨාධිකරණයට පෙත්සම් ඉදිරිපත් කළ යුතු කාලසීමාව කුමක්ද?',
+        options: {
+          A: 'දින 14 ක් ඇතුළත',
+          B: 'උල්ලංඝනය වී මාසයක් ඇතුළත',
+          C: 'මාස 3 ක් ඇතුළත',
+          D: 'කාලසීමාවක් නොමැත'
+        },
+        answer: 'B',
+        explanation: '17 වන සහ 126 වන වගන්ති යටතේ මූලික අයිතිවාසිකම් උල්ලංඝනය වී මාසයක් ඇතුළත ශ්‍රේෂ්ඨාධිකරණය වෙත පෙත්සම් ඉදිරිපත් කළ යුතුය.'
+      },
+      {
+        id: 16,
+        category: 'constitution',
+        source: 'පිටුව 1 • 14A වගන්තිය',
+        question: '19 වන ආණ්ඩුක්‍රම ව්‍යවස්ථා සංශෝධනය මඟින් නව මූලික අයිතිවාසිකමක් ලෙස 14A වගන්තිය යටතේ ව්‍යවස්ථාවට එක්කරන ලද්දේ කුමන අයිතිවාසිකමද?',
+        options: {
+          A: 'අධ්‍යාපනය ලැබීමේ අයිතිවාසිකම',
+          B: 'තොරතුරු දැනගැනීමේ අයිතිවාසිකම',
+          C: 'දේපළ අයිතිය',
+          D: 'කම්කරු සංගම් පිහිටුවීමේ අයිතිය'
+        },
+        answer: 'B',
+        explanation: '19 වන සංශෝධනය මඟින් 14A වගන්තිය යටතේ තොරතුරු දැනගැනීමේ අයිතිවාසිකම මූලික අයිතිවාසිකමක් ලෙස ව්‍යවස්ථාවට එකතු කරන ලදී.'
+      },
+      {
+        id: 17,
+        category: 'constitution',
+        source: 'පිටුව 2 • VI වන පරිච්ඡේදය (27-29)',
+        question: 'VI වන පරිච්ඡේදයේ (27 - 29 වගන්ති) දැක්වෙන රාජ්‍ය ප්‍රතිපත්තිය මෙහෙයවන මූලධර්ම සහ මූලික යුතුකම් පිළිබඳ නිවැරදි නෛතික ස්වභාවය කුමක්ද?',
+        options: {
+          A: 'ශ්‍රේෂ්ඨාධිකරණය මඟින් සෘජුවම බලාත්මක කළ හැකිය',
+          B: 'අධිකරණය මඟින් බලාත්මක කළ නොහැකි (Non-justiciable) වේ',
+          C: 'අභියාචනාධිකරණය මඟින් බලාත්මක කළ හැකිය',
+          D: 'පරම මූලික අයිතිවාසිකම් ලෙස සැලකේ'
+        },
+        answer: 'B',
+        explanation: '29 වන වගන්තිය අනුව VI වන පරිච්ඡේදයේ විධිවිධාන අධිකරණය මඟින් බලාත්මක කළ නොහැකි (Non-justiciable) බැවින් ඒවා බලාත්මක කරන ලෙස ඉල්ලා උසාවි යා නොහැක.'
+      },
+      {
+        id: 18,
+        category: 'constitution',
+        source: 'පිටුව 2 • 30 වන වගන්තිය',
+        question: 'VII වන පරිච්ඡේදයේ 30 වන වගන්තිය අනුව ජනාධිපතිවරයා සතු භූමිකාවන්ට ඇතුළත් නොවන්නේ කුමක්ද?',
+        options: {
+          A: 'රාජ්‍යයේ ප්‍රධානියා',
+          B: 'විධායකයේ සහ ආණ්ඩුවේ ප්‍රධානියා',
+          C: 'සන්නද්ධ සේවාවන්හි සේනාධිනායකයා',
+          D: 'අධිකරණ සේවා කොමිෂන් සභාවේ සභාපති'
+        },
+        answer: 'D',
+        explanation: '30 වන වගන්තිය අනුව ජනාධිපතිවරයා රාජ්‍යයේ, විධායකයේ සහ ආණ්ඩුවේ ප්‍රධානියා මෙන්ම සන්නද්ධ සේවාවන්හි සේනාධිනායකයා වේ. අධිකරණ සේවා කොමිෂන් සභාවේ සභාපති වන්නේ අගවිනිසුරුය.'
+      },
+      {
+        id: 19,
+        category: 'constitution',
+        source: 'පිටුව 2 & 8 • VIIA පරිච්ඡේදය',
+        question: '21 වන සංශෝධනයෙන් නැවත පිහිටුවන ලද ව්‍යවස්ථාදායක සභාවේ (Constitutional Council) මුළු සාමාජික සංඛ්‍යාව කීයද?',
+        options: {
+          A: '7 දෙනෙකි',
+          B: '10 දෙනෙකි',
+          C: '5 දෙනෙකි',
+          D: '12 දෙනෙකි'
+        },
+        answer: 'B',
+        explanation: 'ව්‍යවස්ථාදායක සභාවේ සාමාජික සංඛ්‍යාව 10 කි (නිල බලයෙන් 3ක්, පාර්ලිමේන්තු මන්ත්‍රීවරුන් 4ක් සහ සිවිල් සමාජ නියෝජිතයන් 3ක්).'
+      },
+      {
+        id: 20,
+        category: 'constitution',
+        source: 'පිටුව 2 • 20 වන සංශෝධනය',
+        question: '20 වන ව්‍යවස්ථා සංශෝධනය මඟින් ව්‍යවස්ථාදායක සභාව අහෝසි කර ඒ වෙනුවට හඳුන්වා දෙන ලද්දේ කුමන ආයතනයද?',
+        options: {
+          A: 'ජාතික පොලිස් සභාව',
+          B: 'පාර්ලිමේන්තු සභාව (Parliamentary Council)',
+          C: 'රාජ්‍ය සේවා සභාව',
+          D: 'උපදේශක මන්ත්‍රණ සභාව'
+        },
+        answer: 'B',
+        explanation: '20 වන සංශෝධනය මඟින් ව්‍යවස්ථාදායක සභාව අහෝසි කර හුදු උපදෙස් දෙන ආයතනයක් ලෙස පාර්ලිමේන්තු සභාව හඳුන්වා දුන් අතර, පසුව 21 වන සංශෝධනයෙන් එය අහෝසි කෙරිණි.'
+      },
+      {
+        id: 21,
+        category: 'constitution',
+        source: 'පිටුව 2 • VIII වන පරිච්ඡේදය (21 වන සංශෝධනය)',
+        question: '21 වන ව්‍යවස්ථා සංශෝධනයට අනුව ජනාධිපතිවරයා විසින් අමාත්‍යවරුන් පත්කිරීම සහ විෂයයන් පැවරීම සිදුකළ යුත්තේ කාගේ උපදෙස් මතද?',
+        options: {
+          A: 'කථානායකවරයාගේ උපදෙස් මත',
+          B: 'අග්‍රාමාත්‍යවරයාගේ උපදෙස් මත',
+          C: 'ව්‍යවස්ථාදායක සභාවේ උපදෙස් මත',
+          D: 'නීතිපතිවරයාගේ උපදෙස් මත'
+        },
+        answer: 'B',
+        explanation: 'VIII වන පරිච්ඡේදය සහ 21 වන සංශෝධනය අනුව ජනාධිපතිවරයා විසින් අමාත්‍යවරුන් පත්කිරීම සහ විෂයයන් පැවරීම අග්‍රාමාත්‍යවරයාගේ උපදෙස් මත සිදුකළ යුතුය.'
+      },
+      {
+        id: 22,
+        category: 'constitution',
+        source: 'පිටුව 2 • IX වන පරිච්ඡේදය',
+        question: 'රාජ්‍ය නිලධාරීන්ගේ පත්කිරීම්, උසස්වීම්, මාරුකිරීම් සහ විනය පාලනය සම්බන්ධයෙන් ස්වාධීන බලතල ක්‍රියාත්මක කරන්නේ කවුරුන්ද?',
+        options: {
+          A: 'අධිකරණ සේවා කොමිෂන් සභාව',
+          B: 'රාජ්‍ය සේවා කොමිෂන් සභාව',
+          C: 'මැතිවරණ කොමිෂන් සභාව',
+          D: 'ජාතික පොලිස් කොමිෂන් සභාව'
+        },
+        answer: 'B',
+        explanation: 'IX වන පරිච්ඡේදය (54 - 61F වගන්ති) යටතේ රාජ්‍ය සේවයේ පත්කිරීම්, උසස්වීම්, මාරුකිරීම් සහ විනය පාලනය රාජ්‍ය සේවා කොමිෂන් සභාව මඟින් සිදුකෙරේ.'
+      },
+      {
+        id: 23,
+        category: 'constitution',
+        source: 'පිටුව 3 • X වන පරිච්ඡේදය (62 වගන්තිය)',
+        question: '62(1) සහ 62(2) වගන්ති අනුව ශ්‍රී ලංකා පාර්ලිමේන්තුවේ මුළු මන්ත්‍රී සංඛ්‍යාව සහ ප්‍රථම රැස්වීම් දිනයේ සිට එහි ධූර කාලය කොපමණද?',
+        options: {
+          A: 'මන්ත්‍රීවරුන් 196 ක් • වසර 6 ක්',
+          B: 'මන්ත්‍රීවරුන් 225 ක් • වසර 5 ක්',
+          C: 'මන්ත්‍රීවරුන් 225 ක් • වසර 4 ක්',
+          D: 'මන්ත්‍රීවරුන් 250 ක් • වසර 5 ක්'
+        },
+        answer: 'B',
+        explanation: '62(1) වගන්තිය අනුව පාර්ලිමේන්තුව මන්ත්‍රීවරුන් 225 දෙනෙකුගෙන් සමන්විත වන අතර, 62(2) වගන්තිය අනුව එහි ධූර කාලය වසර 5 කි.'
+      },
+      {
+        id: 24,
+        category: 'constitution',
+        source: 'පිටුව 3 • 65 වන වගන්තිය',
+        question: '65 වන වගන්තිය අනුව පාර්ලිමේන්තු මහලේකම්වරයා පත් කරනු ලබන්නේ කවුරුන් විසින්ද?',
+        options: {
+          A: 'කථානායකවරයා විසින්',
+          B: 'ජනාධිපතිවරයා විසින්',
+          C: 'අග්‍රාමාත්‍යවරයා විසින්',
+          D: 'ව්‍යවස්ථාදායක සභාව විසින්'
+        },
+        answer: 'B',
+        explanation: '65 වන වගන්තිය අනුව පාර්ලිමේන්තු මහලේකම්වරයා ජනාධිපතිවරයා විසින් පත් කරනු ලබන අතර, පාර්ලිමේන්තු යෝජනාවකින් පමණක් ධූරයෙන් ඉවත් කළ හැක.'
+      },
+      {
+        id: 25,
+        category: 'constitution',
+        source: 'පිටුව 3 • XII වන පරිච්ඡේදය (82-84 වගන්ති)',
+        question: 'ආණ්ඩුක්‍රම ව්‍යවස්ථා සංශෝධන පනත් කෙටුම්පතක් පාර්ලිමේන්තුවේදී සම්මත වීමට අවශ්‍ය අවම බහුතරය කුමක්ද?',
+        options: {
+          A: 'සරල බහුතරය',
+          B: 'පැමිණ සිටින සහ ඡන්දය දෙන අයගෙන් 2/3 ක්',
+          C: 'මුළු මන්ත්‍රී සංඛ්‍යාවෙන් 2/3 ක්',
+          D: 'මුළු මන්ත්‍රී සංඛ්‍යාවෙන් 3/4 ක්'
+        },
+        answer: 'C',
+        explanation: 'XII වන පරිච්ඡේදය අනුව ඕනෑම ව්‍යවස්ථා සංශෝධන පනත් කෙටුම්පතක් සම්මත වීමට මුළු මන්ත්‍රී සංඛ්‍යාවෙන් තුනෙන් දෙකක (2/3) බහුතර කැමැත්ත අනිවාර්ය වේ.'
+      },
+      {
+        id: 26,
+        category: 'constitution',
+        source: 'පිටුව 3 • 88 වන වගන්තිය',
+        question: 'XIV වන පරිච්ඡේදයේ 88 වන වගන්තිය අනුව ශ්‍රී ලංකාවේ ඡන්දය ප්‍රකාශ කිරීමේ අයිතිය හිමිවන්නේ කුමන වයස් සීමාව සපුරා ඇති පුරවැසියන්ටද?',
+        options: {
+          A: 'වයස අවුරුදු 21',
+          B: 'වයස අවුරුදු 18',
+          C: 'වයස අවුරුදු 16',
+          D: 'වයස අවුරුදු 20'
+        },
+        answer: 'B',
+        explanation: '88 වන වගන්තිය අනුව වයස අවුරුදු 18 සපුරා ඇති, ව්‍යවස්ථාපිත නුසුදුසුකම්වලින් තොර සෑම පුරවැසියෙකුටම ඡන්ද බලය හිමිවේ.'
+      },
+      {
+        id: 27,
+        category: 'constitution',
+        source: 'පිටුව 3 • XV & XVA පරිච්ඡේද',
+        question: '105(1) වගන්තිය අනුව ඉහළම අධිකරණ යුගලය (Superior Courts) කුමක්ද සහ 111D වගන්තියෙන් පිහිටුවන ලද කොමිෂන් සභාව කුමක්ද?',
+        options: {
+          A: 'ශ්‍රේෂ්ඨාධිකරණය සහ මහාධිකරණය • ජාතික පොලිස් කොමිෂන් සභාව',
+          B: 'ශ්‍රේෂ්ඨාධිකරණය සහ අභියාචනාධිකරණය • අධිකරණ සේවා කොමිෂන් සභාව',
+          C: 'අභියාචනාධිකරණය සහ දිසා අධිකරණය • රාජ්‍ය සේවා කොමිෂන් සභාව',
+          D: 'ශ්‍රේෂ්ඨාධිකරණය සහ අභියාචනාධිකරණය • මැතිවරණ කොමිෂන් සභාව'
+        },
+        answer: 'B',
+        explanation: '105(1) වගන්තිය අනුව ශ්‍රේෂ්ඨාධිකරණය සහ අභියාචනාධිකරණය ඉහළම අධිකරණ යුගලය වන අතර, 111D වගන්තියෙන් අධිකරණ සේවා කොමිෂන් සභාව පිහිටුවා ඇත.'
+      },
+      {
+        id: 28,
+        category: 'constitution',
+        source: 'පිටුව 3 • 107(5) වගන්තිය',
+        question: '107(5) වගන්තියට අනුව ශ්‍රේෂ්ඨාධිකරණ විනිසුරුවරයෙකුගේ සහ අභියාචනාධිකරණ විනිසුරුවරයෙකුගේ අනිවාර්ය විශ්‍රාම වයස් පිළිවෙලින් කීයද?',
+        options: {
+          A: 'අවුරුදු 63 සහ අවුරුදු 65',
+          B: 'අවුරුදු 65 සහ අවුරුදු 63',
+          C: 'අවුරුදු 60 සහ අවුරුදු 62',
+          D: 'අවුරුදු 65 සහ අවුරුදු 65'
+        },
+        answer: 'B',
+        explanation: '107(5) වගන්තිය අනුව ශ්‍රේෂ්ඨාධිකරණ විනිසුරුවරයෙකු වයස අවුරුදු 65 දීද, අභියාචනාධිකරණ විනිසුරුවරයෙකු වයස අවුරුදු 63 දීද විශ්‍රාම ලැබිය යුතුය.'
+      },
+      {
+        id: 29,
+        category: 'constitution',
+        source: 'පිටුව 4 • 149(1) & 153 වගන්ති',
+        question: '149(1) වගන්තිය අනුව රජයේ සියලු බදු හා ආදායම් බැර කරන ප්‍රධාන අරමුදල කුමක්ද සහ 153 වගන්තියෙන් පත් කරන්නේ කවුරුන්ද?',
+        options: {
+          A: 'ජනාධිපති අරමුදල • මහා භාණ්ඩාගාර ලේකම්',
+          B: 'ඒකාබද්ධ අරමුදල (Consolidated Fund) • විගණකාධිපතිවරයා',
+          C: 'සංවර්ධන අරමුදල • මුදල් අමාත්‍යවරයා',
+          D: 'ඒකාබද්ධ අරමුදල • මහ බැංකු අධිපති'
+        },
+        answer: 'B',
+        explanation: '149(1) වගන්තිය අනුව සියලු බදු හා ආදායම් බැර කෙරෙන්නේ ඒකාබද්ධ අරමුදලට (Consolidated Fund) වන අතර, 153 වගන්තිය යටතේ විගණකාධිපතිවරයා පත් කෙරේ.'
+      },
+      {
+        id: 30,
+        category: 'constitution',
+        source: 'පිටුව 4-5 • XVIIA, XVIII, XXII, XXIV පරිච්ඡේද',
+        question: 'පහත සඳහන් වගන්ති සහ ඒවායේ නිවැරදි අර්ථය දැක්වෙන පිළිතුර කුමක්ද?',
+        options: {
+          A: '154B(2) - පළාත් ආණ්ඩුකාරවරයා • 155 - හදිසි අවස්ථා (මහජන ආරක්ෂක ආඥාපනත)',
+          B: '170 - ව්‍යවස්ථාව අවලංගු කිරීම • 171 - අර්ථ නිරූපණය',
+          C: '172 - පළාත් සභා ප්‍රඥප්ති • 156 - රාජ්‍ය මූල්‍ය පාලනය',
+          D: '155 - පළාත් සභා ලැයිස්තු • 171 - ව්‍යවස්ථාව බලාත්මක කිරීම'
+        },
+        answer: 'A',
+        explanation: '154B(2) පළාත් ආණ්ඩුකාරවරයා ගැනද, 155 හදිසි අවස්ථා (මහජන ආරක්ෂක ආඥාපනත) ගැනද, 170 අර්ථ නිරූපණය (සහ ප්‍රඥප්ති) ගැනද, 171 අවලංගු කිරීම ගැනද, 172 ප්‍රකාශයට පත් කිරීම ගැනද දක්වයි.'
+      },
+      {
+        id: 31,
+        category: 'constitution',
+        source: 'පිටුව 5 & 9 • නවවන උපලේඛනය',
+        question: '13 වන සංශෝධනයෙන් එක් කළ නවවන උපලේඛනයේ (Ninth Schedule) අන්තර්ගත විෂය ලැයිස්තු තුන මොනවාද?',
+        options: {
+          A: 'මධ්‍යම ලැයිස්තුව, දිස්ත්‍රික් ලැයිස්තුව, ප්‍රාදේශීය ලැයිස්තුව',
+          B: 'පළාත් සභා ලැයිස්තුව (List I), වෙන්කළ ලැයිස්තුව (List II), සමගාමී ලැයිස්තුව (List III)',
+          C: 'ආර්ථික ලැයිස්තුව, නීති ලැයිස්තුව, පරිපාලන ලැයිස්තුව',
+          D: 'පළාත් ලැයිස්තුව, විදේශ ලැයිස්තුව, ආරක්ෂක ලැයිස්තුව'
+        },
+        answer: 'B',
+        explanation: 'නවවන උපලේඛනයේ පළාත් සභා ලැයිස්තුව (List I), වෙන්කළ ලැයිස්තුව (List II) සහ සමගාමී ලැයිස්තුව (List III) යන ලැයිස්තු තුන ඇතුළත් වේ.'
+      },
+      {
+        id: 32,
+        category: 'constitution',
+        source: 'පිටුව 8 • 16(1) වගන්තිය',
+        question: '16(1) වගන්තිය යටතේ 1978 ව්‍යවස්ථාවට පෙර පැවති ලිඛිත හා අලිඛිත නීති පිළිබඳ නිවැරදි ප්‍රකාශය කුමක්ද?',
+        options: {
+          A: 'මූලික අයිතිවාසිකම්වලට පටහැනි නම් ස්වයංක්‍රීයව අවලංගු වේ',
+          B: 'මූලික අයිතිවාසිකම්වලට අනනුකූල වුවද තවදුරටත් වලංගුව සහ බලාත්මකව පවතී',
+          C: 'වසර 5කින් පසු අහෝසි වේ',
+          D: 'ජනාධිපති නියෝගයකින් පමණක් වලංගු වේ'
+        },
+        answer: 'B',
+        explanation: '16(1) වගන්තිය අනුව පූර්ව ව්‍යවස්ථාමය ලිඛිත හා අලිඛිත නීති මූලික අයිතිවාසිකම්වලට පටහැනි වුවද බලාත්මකව පවතින අතර, එය මූලික අයිතිවාසිකම්වල උත්තරීතරභාවයට සීමාවකි.'
+      },
+
+      // --- Current Affairs MCQs (Pages 9-15) ---
+      {
+        id: 33,
+        category: 'current',
+        source: 'පිටුව 9 • කාලීන තොරතුරු 1 & 2',
+        question: 'ජාතික කාන්තා කොමිෂන් සභාවේ නව සභාපතිනිය ලෙස පත්කරන ලද්දේ කවුරුන්ද සහ කර්මාන්ත සංවර්ධන මණ්ඩලයේ (IDB) නව සභාපතිවරයා කවුද?',
+        options: {
+          A: 'ග්‍රේස් ආසිර්වාතම් මහත්මිය • යසස් හේවගේ මහතා',
+          B: 'නාරද ප්‍රනාන්දු මහතා • කාවින්ද ද සොයිසා මහතා',
+          C: 'හරිනි අමරසූරිය මෙනවිය • අනුර කරුණාතිලක මහතා',
+          D: 'ග්‍රේස් ආසිර්වාතම් මහත්මිය • විජිත හේරත් මහතා'
+        },
+        answer: 'A',
+        explanation: 'ජාතික කාන්තා කොමිෂන් සභාවේ සභාපතිනිය ලෙස ග්‍රේස් ආසිර්වාතම් මහත්මියද, IDB නව සභාපතිවරයා ලෙස යසස් හේවගේ මහතාද පත්කරන ලදී.'
+      },
+      {
+        id: 34,
+        category: 'current',
+        source: 'පිටුව 9 • කාලීන තොරතුරු 3 & 4',
+        question: "රාජ්‍ය නිලධාරීන් 400ක් 'ඩිජිටල් ශූරයන්' ලෙස බඳවා ගැනීමේ ජාතික නියමු ජාලය සහ 'පිරිසිදු ශ්‍රී ලංකා' යටතේ යෝජිත නව රාජ්‍ය ව්‍යාපෘතිය කුමක්ද?",
+        options: {
+          A: 'LankaQR Network • Smart Village Project',
+          B: 'Public Impact Champions Network (PIC-NET) • ආදර්ශ නගර ජාලය (Network of Model Cities)',
+          C: 'Digital Sri Lanka Hub • Green City Initiative',
+          D: 'PIC-NET • ඩිජිටල් ග්‍රාම ජාලය'
+        },
+        answer: 'B',
+        explanation: 'රාජ්‍ය නිලධාරීන් 400ක් ඩිජිටල් ශූරයන් ලෙස බඳවා ගැනීමට PIC-NET හඳුන්වා දුන් අතර, පිරිසිදු ශ්‍රී ලංකා යටතේ ආදර්ශ නගර ජාලය (Network of Model Cities) යෝජිතය.'
+      },
+      {
+        id: 35,
+        category: 'current',
+        source: 'පිටුව 10 • කාලීන තොරතුරු 6 & 7',
+        question: 'නවතම අමාත්‍ය මණ්ඩල සංශෝධන යටතේ බලශක්ති අමාත්‍යවරයා කවුද සහ නිල්වලා සාලිනිටි බැරියර් ව්‍යාපෘතියෙන් පීඩාවට පත් ගොවීන්ට ලබාදුන් වන්දි මුදල කොපමණද?',
+        options: {
+          A: 'අනුර කරුණාතිලක මහතා • රුපියල් බිලියන 1.2 කි',
+          B: 'විජිත හේරත් මහතා • රුපියල් බිලියන 1.1 කි',
+          C: 'යසස් හේවගේ මහතා • රුපියල් බිලියන 2.5 කි',
+          D: 'අනුර කරුණාතිලක මහතා • රුපියල් මිලියන 111.11 කි'
+        },
+        answer: 'A',
+        explanation: 'බලශක්ති අමාත්‍යවරයා ලෙස අනුර කරුණාතිලක මහතා දිවුරුම් දුන් අතර, නිල්වලා සාලිනිටි බැරියර් ව්‍යාපෘතියේ ගොවීන්ට රුපියල් බිලියන 1.2 ක වන්දි ලබා දෙන ලදී.'
+      },
+      {
+        id: 36,
+        category: 'current',
+        source: 'පිටුව 10 • කාලීන තොරතුරු 8 & 9',
+        question: 'විදේශ සම්පත් දෙපාර්තමේන්තුවේ පරිගණක පද්ධතියට සිදු වූ සයිබර් ප්‍රහාරයෙන් අදාළ මුදල සහ රක්නා ආරක්ෂක ලංකා සමාගම මහා භාණ්ඩාගාරයට දුන් ලාභාංශය කොපමණද?',
+        options: {
+          A: 'USD 1.5 Million • රු. මිලියන 59',
+          B: 'USD 2.5 Million • රුපියල් මිලියන 111.11 (රු. 111,110,014.00)',
+          C: 'USD 5.7 Million • රු. මිලියන 1.2',
+          D: 'USD 100,000 • රු. මිලියන 99'
+        },
+        answer: 'B',
+        explanation: 'විදේශ ණය ආපසු ගෙවීමකට අදාළ USD 2.5 Million මුදලක් සයිබර් ප්‍රහාරයකින් හරවා ගැනීමට තැත් කළ අතර, රක්නා ලංකා සමාගම රු. 111,110,014.00 ක ලාභාංශයක් පිරිනැමීය.'
+      },
+      {
+        id: 37,
+        category: 'current',
+        source: 'පිටුව 10 • කාලීන තොරතුරු 11 & 12',
+        question: '2025 මූල්‍ය වර්ෂයේ ඉතිහාසයේ ඉහළම පූර්ව බදු ලාභය (රු. බිලියන 59) වාර්තා කළ රාජ්‍ය බැංකුව සහ 2026 මුල් මාස 4 තුළ අපනයන ආදායම පසුකළ සීමාව කුමක්ද?',
+        options: {
+          A: 'ලංකා බැංකුව • ඇ.ඩො. බිලියන 4.5',
+          B: 'ජාතික ඉතිරිකිරීමේ බැංකුව (NSB) • ඇ.ඩො. බිලියන 5.7 (US$ 5,784.38 Million)',
+          C: 'මහජන බැංකුව • ඇ.ඩො. බිලියන 5.7',
+          D: 'NSB • ඇ.ඩො. බිලියන 6.2'
+        },
+        answer: 'B',
+        explanation: 'ජාතික ඉතිරිකිරීමේ බැංකුව (NSB) රු. බිලියන 59ක පූර්ව බදු ලාභයක් වාර්තා කළ අතර, 2026 මුල් මාස 4 තුළ භාණ්ඩ හා සේවා අපනයන ආදායම ඇ.ඩො. බිලියන 5.7 ඉක්මවීය.'
+      },
+      {
+        id: 38,
+        category: 'current',
+        source: 'පිටුව 11 • කාලීන තොරතුරු 13 & 14',
+        question: 'දේශසීමා මූල්‍ය ගනුදෙනු පහසු කිරීමට ගිවිසගත් ජාත්‍යන්තර ගෙවීම් පද්ධතිය සහ 2025 වාර්ෂික වාර්තා භාරදුන් මහජන බැංකු / ලංකා බැංකු සභාපතිවරුන් කවුරුන්ද?',
+        options: {
+          A: 'Visa • යසස් හේවගේ සහ ග්‍රේස් ආසිර්වාතම්',
+          B: 'PayPal • මහාචාර්ය නාරද ප්‍රනාන්දු (මහජන බැංකුව) සහ කාවින්ද ද සොයිසා (ලංකා බැංකුව)',
+          C: 'PayPal • කාවින්ද ද සොයිසා සහ නාරද ප්‍රනාන්දු',
+          D: 'Mastercard • අනුර කරුණාතිලක සහ විජිත හේරත්'
+        },
+        answer: 'B',
+        explanation: 'PayPal ජාත්‍යන්තර ගෙවීම් පද්ධතිය සමඟ එකඟ වූ අතර, මහජන බැංකු සභාපති මහාචාර්ය නාරද ප්‍රනාන්දු සහ ලංකා බැංකු සභාපති කාවින්ද ද සොයිසා 2025 වාර්තා පිළිගැන්වූහ.'
+      },
+      {
+        id: 39,
+        category: 'current',
+        source: 'පිටුව 11 • කාලීන තොරතුරු 16, 17 & 20',
+        question: 'ජාතික අපනයන සංවර්ධන සැලැස්මේ කාලරාමුව, ADB සංචාරක කලාපය සහ නොමිලේ දින 30ක Tourist ETA ලබාදුන් රටවල් ගණන පිළිවෙලින් කුමක්ද?',
+        options: {
+          A: '2025-2029 • නුවරඑළිය/යාපනය • රටවල් 30',
+          B: '2026-2030 • දඹුල්ල/සීගිරිය සහ ත්‍රිකුණාමලය • රටවල් 40',
+          C: '2026-2030 • ගාල්ල/මාතර • රටවල් 50',
+          D: '2024-2028 • සීගිරිය/කන්ද • රටවල් 40'
+        },
+        answer: 'B',
+        explanation: 'ජාතික අපනයන සංවර්ධන සැලැස්ම 2026-2030 වන අතර, ADB සංචාරක ව්‍යාපෘතිය දඹුල්ල/සීගිරිය සහ ත්‍රිකුණාමලය සඳහාද, නොමිලේ ETA රටවල් 40කටද අනුමත විය.'
+      },
+      {
+        id: 40,
+        category: 'current',
+        source: 'පිටුව 12 • කාලීන තොරතුරු 21-29',
+        question: 'වියට්නාම ජනාධිපති තෝ ලම් සංචාරයේදී හුවමාරු වූ MoUs ගණන, මාලදිවයින් ජනපති පැළ රෝපණය කළ උද්‍යානය සහ එක්සත් ජාතීන්ගේ මහා මණ්ඩල සැසිවාරය කුමක්ද?',
+        options: {
+          A: 'MoUs 5 • විහාරමහාදේවී උද්‍යානය • 81 වන සැසිවාරය',
+          B: 'MoUs 7 • ගංගාරාම උද්‍යානය • 80 වන සැසිවාරය',
+          C: 'MoUs 5 • ගෝල්ෆේස් පිටිය • 81 වන සැසිවාරය',
+          D: 'MoUs 7 • විහාරමහාදේවී උද්‍යානය • 81 වන සැසිවාරය'
+        },
+        answer: 'A',
+        explanation: 'වියට්නාම සංචාරයේදී MoUs 5ක් හුවමාරු වූ අතර, මාලදිවයින් ජනපති විහාරමහාදේවී උද්‍යානයේ පැළයක් රෝපණය කළේය. විජිත හේරත් මහතා ඇමතුවේ 81 වන UNGA සැසිවාරයයි.'
+      },
+      {
+        id: 41,
+        category: 'current',
+        source: 'පිටුව 13 • කාලීන තොරතුරු 31, 32, 35 & 38',
+        question: 'අලුතින් ධාවනයට එක්කළ මෙට්‍රෝ බස් ගණන, ප්‍රථම මෙට්‍රෝ බස් ඩිපෝව, Low-Floor Bus නියමු ව්‍යාපෘතිය සහ නවීකරණය කළ දුම්රිය ස්ථානය පිළිවෙලින් කුමක්ද?',
+        options: {
+          A: 'බස් 112 • කඩවත • මාකුඹුර • මරදාන දුම්රිය ස්ථානය',
+          B: 'බස් 122 • මහරගම • කොටුව • කොටුව දුම්රිය ස්ථානය',
+          C: 'බස් 112 • මාකුඹුර • කඩවත • මරදාන දුම්රිය ස්ථානය',
+          D: 'බස් 100 • කඩවත • බදුල්ල • නානුඔය දුම්රිය ස්ථානය'
+        },
+        answer: 'A',
+        explanation: 'මෙට්‍රෝ බස් රථ 112ක් ධාවනයට එක්වූ අතර, ප්‍රථම මෙට්‍රෝ බස් ඩිපෝව කඩවතද, Low-Floor Bus ව්‍යාපෘතිය මාකුඹුරද, නවීකරණය කළ දුම්රිය ස්ථානය මරදාන දුම්රිය ස්ථානයද වේ.'
+      },
+      {
+        id: 42,
+        category: 'current',
+        source: 'පිටුව 14 • කාලීන තොරතුරු 39-44',
+        question: 'ශ්‍රී ලංකා පොලිසියට ලැබුණු කැබ් රථ ගණන, පුත්තලම ජල ව්‍යාපෘති දෙක සහ ජාතික රෝහලේ නවීකරණය කළ ආයතනය පිළිවෙලින් කුමක්ද?',
+        options: {
+          A: 'කැබ් 134 • කලා ඔය සහ මා ඔය • ස්නායු රෝග ආයතනය',
+          B: 'කැබ් 112 • දැදුරු ඔය සහ මහවැලි • හෘද රෝග ආයතනය',
+          C: 'කැබ් 134 • කලා ඔය සහ වලවේ • පිළිකා රෝහල',
+          D: 'කැබ් 120 • මා ඔය සහ කැලණි • ස්නායු රෝග ආයතනය'
+        },
+        answer: 'A',
+        explanation: 'පොලිසියට කැබ් රථ 134ක් ලැබුණු අතර, පුත්තලම ජල ව්‍යාපෘති කලා ඔය සහ මා ඔය වේ. ජාතික රෝහලේ රු. මිලියන 99කින් ස්නායු රෝග ආයතනය නවීකරණය කෙරිණි.'
+      },
+      {
+        id: 43,
+        category: 'current',
+        source: 'පිටුව 14-15 • කාලීන තොරතුරු 46, 48 & 49',
+        question: '“එහිපස්සිකෝ” ලෝක ශාන්ති පාගමන මෙහෙයවූ හිමියන්, ආසියානු ක්‍රීඩා හෙල්ල විසිකිරීමේ රන් පදක්කම්ලාභියා සහ ලොතරැයි අලෙවිකරුවන්ගේ දරුවන්ට ශිෂ්‍යත්ව දෙන අරමුදල කුමක්ද?',
+        options: {
+          A: 'පූජ්‍ය භික්ඛු පඤ්ඤාකාර හිමි • රුමේෂ් තරංග පතිරගේ • ජනාධිපති අරමුදල',
+          B: 'පූජ්‍ය භික්ඛු පඤ්ඤාකාර හිමි • සුමේධ රණසිංහ • මහපොළ අරමුදල',
+          C: 'පූජ්‍ය ඥානිස්සර හිමි • රුමේෂ් තරංග පතිරගේ • ජනාධිපති අරමුදල',
+          D: 'පූජ්‍ය භික්ඛු පඤ්ඤාකාර හිමි • රුමේෂ් තරංග පතිරගේ • Rebuilding Sri Lanka අරමුදල'
+        },
+        answer: 'A',
+        explanation: 'එහිපස්සිකෝ පාගමන පූජ්‍ය භික්ඛු පඤ්ඤාකාර හිමියන් විසින්ද, හෙල්ල විසිකිරීමේ රන් පදක්කම (මීටර් 88.55) රුමේෂ් තරංග පතිරගේ විසින්ද දිනාගත් අතර, ශිෂ්‍යත්ව ලබා දෙන්නේ ජනාධිපති අරමුදලිනි.'
+      },
+      {
+        id: 44,
+        category: 'current',
+        source: 'පිටුව 15 • කාලීන තොරතුරු 47 & 50',
+        question: "'A Nation United' මෙහෙයුම යටතේ මාස 6කදී අත්අඩංගුවට ගෙන ගෙනා විදේශගත පාතාල සාමාජිකයින් ගණන සහ පොලිස් නිලධාරීන්ගේ දිනක වැටුපෙන් Rebuilding Sri Lanka අරමුදලට දුන් මුදල කොපමණද?",
+        options: {
+          A: '28 දෙනෙකු • රුපියල් 9,687,462 කි',
+          B: '20 දෙනෙකු • රුපියල් 5,784,380 කි',
+          C: '28 දෙනෙකු • රුපියල් 17,600 කි',
+          D: '35 දෙනෙකු • රුපියල් 9,687,462 කි'
+        },
+        answer: 'A',
+        explanation: 'A Nation United මෙහෙයුමෙන් විදේශගත පාතාල සාමාජිකයින් 28 දෙනෙකු ගෙන ආ අතර, පොලිස් නිලධාරීන්ගේ දිනක වැටුපෙන් රු. 9,687,462 ක් Rebuilding Sri Lanka අරමුදලට පරිත්‍යාග කෙරිණි.'
+      }
+    ];
+
+    // Application State
+    let currentCategory = 'all'; // 'all' | 'constitution' | 'current'
+    let practiceMode = 'all'; // 'all' | '20'
+    let activeQuestions = [];
+    let currentIndex = 0;
+    let userAnswers = {}; // { questionId: 'A' | 'B' | 'C' | 'D' }
+    let isCustomRetrySet = false;
+
+    // Initialize Theme from localStorage
+    function initTheme() {
+      const savedTheme = localStorage.getItem('lawQuizTheme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+      updateThemeButton();
+    }
+
+    function updateThemeButton() {
+      const isDark = document.documentElement.classList.contains('dark');
+      document.getElementById('themeIcon').textContent = isDark ? '☀️' : '🌙';
+      document.getElementById('themeLabel').textContent = isDark ? 'Light Mode' : 'Dark Mode';
+    }
+
+    document.getElementById('themeToggleBtn').addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('lawQuizTheme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      updateThemeButton();
+    });
+
+    // Category Counts
+    function updateCategoryCounts() {
+      const allCount = QUESTIONS_DATA.length;
+      const constCount = QUESTIONS_DATA.filter(q => q.category === 'constitution').length;
+      const currCount = QUESTIONS_DATA.filter(q => q.category === 'current').length;
+      document.getElementById('count-all').textContent = allCount;
+      document.getElementById('count-constitution').textContent = constCount;
+      document.getElementById('count-current').textContent = currCount;
+    }
+
+    function selectCategory(category) {
+      currentCategory = category;
+      isCustomRetrySet = false;
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        btn.className = 'cat-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border transition bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700 hover:border-amber-500';
+      });
+      const activeBtn = document.getElementById(`cat-${category}`);
+      if (activeBtn) {
+        activeBtn.className = 'cat-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold border transition bg-amber-600 text-white border-amber-600 shadow-sm';
+      }
+      buildQuestionSet(false);
+    }
+
+    function setPracticeMode(mode) {
+      practiceMode = mode;
+      isCustomRetrySet = false;
+      const allBtn = document.getElementById('modeAllBtn');
+      const twentyBtn = document.getElementById('mode20Btn');
+
+      if (mode === 'all') {
+        allBtn.className = 'px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition bg-blue-900 text-white shadow-sm';
+        twentyBtn.className = 'px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition text-slate-700 dark:text-slate-300 hover:bg-white/60 dark:hover:bg-slate-700';
+      } else {
+        twentyBtn.className = 'px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition bg-blue-900 text-white shadow-sm';
+        allBtn.className = 'px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition text-slate-700 dark:text-slate-300 hover:bg-white/60 dark:hover:bg-slate-700';
+      }
+      buildQuestionSet(false);
+    }
+
+    function shuffleArray(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function buildQuestionSet(shouldShuffle) {
+      let pool = currentCategory === 'all'
+        ? [...QUESTIONS_DATA]
+        : QUESTIONS_DATA.filter(q => q.category === currentCategory);
+
+      if (shouldShuffle) {
+        pool = shuffleArray(pool);
+      }
+
+      if (practiceMode === '20') {
+        pool = pool.slice(0, Math.min(20, pool.length));
+      }
+
+      activeQuestions = pool;
+      currentIndex = 0;
+      userAnswers = {};
+      hideResultsShowQuiz();
+      renderQuestion();
+      renderPalette();
+      updateStats();
+    }
+
+    function shuffleAndStart() {
+      isCustomRetrySet = false;
+      buildQuestionSet(true);
+    }
+
+    function restartCurrentSet() {
+      currentIndex = 0;
+      userAnswers = {};
+      if (!isCustomRetrySet) {
+        buildQuestionSet(false);
+      } else {
+        hideResultsShowQuiz();
+        renderQuestion();
+        renderPalette();
+        updateStats();
+      }
+    }
+
+    function hideResultsShowQuiz() {
+      document.getElementById('resultsSection').classList.add('hidden');
+      document.getElementById('reviewList').classList.add('hidden');
+      document.getElementById('quizWorkspace').classList.remove('hidden');
+    }
+
+    function renderQuestion() {
+      if (!activeQuestions.length) return;
+      const q = activeQuestions[currentIndex];
+      const total = activeQuestions.length;
+      const selectedOption = userAnswers[q.id];
+      const isAnswered = Boolean(selectedOption);
+
+      // Badges & Progress
+      document.getElementById('qCounterBadge').textContent = `ප්‍රශ්නය ${currentIndex + 1} / ${total}`;
+      document.getElementById('qCategoryBadge').textContent =
+        q.category === 'constitution' ? 'ආණ්ඩුක්‍රම ව්‍යවස්ථාව' : 'කාලීන තොරතුරු';
+      document.getElementById('qSourceTag').textContent = q.source;
+      document.getElementById('qAnsweredStatus').textContent = isAnswered ? 'පිළිතුරු සපයා ඇත' : 'පිළිතුරු බලාපොරොත්තු වේ';
+
+      const progressPct = ((currentIndex + (isAnswered ? 1 : 0)) / total) * 100;
+      document.getElementById('progressBar').style.width = `${Math.min(100, progressPct)}%`;
+
+      // Question text with subtle card animation
+      const card = document.getElementById('questionCard');
+      card.classList.remove('fade-in');
+      void card.offsetWidth;
+      card.classList.add('fade-in');
+
+      document.getElementById('questionText').textContent = `${currentIndex + 1}. ${q.question}`;
+
+      // Render Options A, B, C, D
+      const optionsContainer = document.getElementById('optionsContainer');
+      optionsContainer.innerHTML = '';
+
+      ['A', 'B', 'C', 'D'].forEach(letter => {
+        const optionText = q.options[letter];
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.disabled = isAnswered;
+
+        let baseClasses = 'option-card w-full text-left p-3.5 sm:p-4 rounded-xl border flex items-start gap-3.5 text-xs sm:text-base font-medium ';
+
+        if (!isAnswered) {
+          baseClasses += 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-blue-600 dark:hover:border-amber-400 hover:bg-blue-50/40 dark:hover:bg-slate-800 cursor-pointer text-slate-800 dark:text-slate-100';
+        } else {
+          if (letter === q.answer) {
+            baseClasses += 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-500 text-emerald-950 dark:text-emerald-100 ring-1 ring-emerald-500';
+          } else if (letter === selectedOption && selectedOption !== q.answer) {
+            baseClasses += 'bg-rose-50 dark:bg-rose-950/50 border-rose-500 text-rose-950 dark:text-rose-100 ring-1 ring-rose-500';
+          } else {
+            baseClasses += 'bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 opacity-75';
+          }
+        }
+
+        btn.className = baseClasses;
+
+        const badge = document.createElement('span');
+        badge.className = 'w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center font-bold text-xs sm:text-sm shrink-0 border ' + (
+          !isAnswered
+            ? 'bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200'
+            : letter === q.answer
+              ? 'bg-emerald-600 border-emerald-600 text-white'
+              : letter === selectedOption
+                ? 'bg-rose-600 border-rose-600 text-white'
+                : 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-500'
+        );
+        badge.textContent = letter;
+
+        const textSpan = document.createElement('span');
+        textSpan.className = 'flex-1 pt-0.5 leading-relaxed';
+        textSpan.textContent = optionText;
+
+        const statusIcon = document.createElement('span');
+        statusIcon.className = 'text-base shrink-0 pt-0.5';
+        if (isAnswered) {
+          if (letter === q.answer) statusIcon.textContent = '✅';
+          else if (letter === selectedOption) statusIcon.textContent = '❌';
+        }
+
+        btn.appendChild(badge);
+        btn.appendChild(textSpan);
+        btn.appendChild(statusIcon);
+
+        if (!isAnswered) {
+          btn.addEventListener('click', () => handleSelectOption(q.id, letter));
+        }
+
+        optionsContainer.appendChild(btn);
+      });
+
+      // Explanation Box
+      const expBox = document.getElementById('explanationBox');
+      const feedbackBadge = document.getElementById('feedbackBadge');
+      const expText = document.getElementById('explanationText');
+
+      if (isAnswered) {
+        const isCorrect = selectedOption === q.answer;
+        expBox.classList.remove('hidden');
+        feedbackBadge.textContent = isCorrect ? 'නිවැරදියි!' : `වැරදියි • නිවැරදි පිළිතුර (${q.answer})`;
+        feedbackBadge.className = isCorrect
+          ? 'text-xs sm:text-sm font-bold px-2.5 py-0.5 rounded-md bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-300'
+          : 'text-xs sm:text-sm font-bold px-2.5 py-0.5 rounded-md bg-rose-100 text-rose-800 dark:bg-rose-900/50 dark:text-rose-300';
+        expText.textContent = q.explanation;
+      } else {
+        expBox.classList.add('hidden');
+      }
+
+      // Navigation Buttons
+      document.getElementById('prevBtn').disabled = currentIndex === 0;
+      document.getElementById('nextBtnLabel').textContent =
+        currentIndex === total - 1 ? 'ප්‍රතිඵල බලන්න ✓' : 'ඊළඟ ප්‍රශ්නය →';
+    }
+
+    function handleSelectOption(questionId, chosenLetter) {
+      if (userAnswers[questionId]) return;
+      userAnswers[questionId] = chosenLetter;
+      updateStats();
+      renderQuestion();
+      renderPalette();
+    }
+
+    function updateStats() {
+      let correct = 0;
+      let wrong = 0;
+      let answeredCount = 0;
+
+      activeQuestions.forEach(q => {
+        const ans = userAnswers[q.id];
+        if (ans) {
+          answeredCount++;
+          if (ans === q.answer) correct++;
+          else wrong++;
+        }
+      });
+
+      document.getElementById('liveCorrect').textContent = correct;
+      document.getElementById('liveWrong').textContent = wrong;
+      document.getElementById('paletteSummary').textContent = `${answeredCount} / ${activeQuestions.length} පිළිතුරු දී ඇත`;
+    }
+
+    function renderPalette() {
+      const palette = document.getElementById('questionPalette');
+      palette.innerHTML = '';
+
+      activeQuestions.forEach((q, idx) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        const ans = userAnswers[q.id];
+        const isCurrent = idx === currentIndex;
+
+        let cls = 'h-9 rounded-lg text-xs font-bold transition flex items-center justify-center border ';
+        if (isCurrent) {
+          cls += 'bg-blue-900 text-white border-blue-900 ring-2 ring-amber-400';
+        } else if (ans === q.answer) {
+          cls += 'bg-emerald-500 text-white border-emerald-600';
+        } else if (ans) {
+          cls += 'bg-rose-500 text-white border-rose-600';
+        } else {
+          cls += 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-amber-500';
+        }
+
+        btn.className = cls;
+        btn.textContent = idx + 1;
+        btn.addEventListener('click', () => {
+          hideResultsShowQuiz();
+          currentIndex = idx;
+          renderQuestion();
+          renderPalette();
+        });
+        palette.appendChild(btn);
+      });
+    }
+
+    function nextQuestion() {
+      if (currentIndex < activeQuestions.length - 1) {
+        currentIndex++;
+        renderQuestion();
+        renderPalette();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        showResults();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderQuestion();
+        renderPalette();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function showResults() {
+      const total = activeQuestions.length;
+      let correct = 0;
+      const incorrectList = [];
+
+      activeQuestions.forEach(q => {
+        if (userAnswers[q.id] === q.answer) {
+          correct++;
+        } else {
+          incorrectList.push(q);
+        }
+      });
+
+      const wrongOrSkipped = total - correct;
+      const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
+
+      document.getElementById('quizWorkspace').classList.add('hidden');
+      document.getElementById('resultsSection').classList.remove('hidden');
+
+      document.getElementById('resTotal').textContent = total;
+      document.getElementById('resCorrect').textContent = correct;
+      document.getElementById('resWrong').textContent = wrongOrSkipped;
+      document.getElementById('resAccuracy').textContent = `${accuracy}%`;
+      document.getElementById('wrongCountBtn').textContent = incorrectList.length;
+
+      const retryWrongBtn = document.getElementById('retryWrongBtn');
+      retryWrongBtn.disabled = incorrectList.length === 0;
+      retryWrongBtn.classList.toggle('opacity-40', incorrectList.length === 0);
+      retryWrongBtn.classList.toggle('cursor-not-allowed', incorrectList.length === 0);
+
+      let emoji = '📘';
+      let msg = 'හොඳ උත්සාහයක්! තවදුරටත් ව්‍යවස්ථා වගන්ති සහ කාලීන කරුණු පුහුණු වන්න.';
+      if (accuracy >= 85) {
+        emoji = '🏆';
+        msg = 'විශිෂ්ටයි! ඔබ ආණ්ඩුක්‍රම ව්‍යවස්ථාව සහ කාලීන තොරතුරු ඉතා හොඳින් ප්‍රගුණ කර ඇත.';
+      } else if (accuracy >= 65) {
+        emoji = '🎯';
+        msg = 'ඉතා හොඳ මට්ටමක සිටිනවා! වැරදුණු ප්‍රශ්න නැවත පුහුණු වී තවත් ලකුණු වැඩි කරගන්න.';
+      }
+
+      document.getElementById('resultEmoji').textContent = emoji;
+      document.getElementById('resultMessage').textContent = msg;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function retryIncorrectQuestions() {
+      const wrongOnes = activeQuestions.filter(q => userAnswers[q.id] !== q.answer);
+      if (!wrongOnes.length) return;
+
+      activeQuestions = wrongOnes;
+      isCustomRetrySet = true;
+      currentIndex = 0;
+      userAnswers = {};
+      hideResultsShowQuiz();
+      renderQuestion();
+      renderPalette();
+      updateStats();
+    }
+
+    function reviewAnswers() {
+      const reviewList = document.getElementById('reviewList');
+      reviewList.classList.remove('hidden');
+      reviewList.innerHTML = '<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3">සවිස්තරාත්මක පිළිතුරු සමාලෝචනය</h3>';
+
+      activeQuestions.forEach((q, idx) => {
+        const chosen = userAnswers[q.id] || 'පිළිතුරු දී නැත';
+        const isCorrect = chosen === q.answer;
+
+        const item = document.createElement('div');
+        item.className = `p-4 rounded-xl border ${
+          isCorrect
+            ? 'bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800/50'
+            : 'bg-rose-50/50 dark:bg-rose-950/20 border-rose-200 dark:border-rose-800/50'
+        }`;
+
+        item.innerHTML = `
+          <div class="flex items-center justify-between gap-2 text-xs font-semibold mb-1.5">
+            <span class="text-slate-500 dark:text-slate-400">${q.source}</span>
+            <span class="${isCorrect ? 'text-emerald-700 dark:text-emerald-400' : 'text-rose-700 dark:text-rose-400'}">
+              ${isCorrect ? '✅ නිවැරදියි' : '❌ වැරදියි'}
+            </span>
+          </div>
+          <p class="font-bold text-sm sm:text-base text-slate-900 dark:text-white mb-2">${idx + 1}. ${q.question}</p>
+          <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 mb-1">
+            <strong>ඔබේ පිළිතුර:</strong> ${chosen !== 'පිළිතුරු දී නැත' ? `(${chosen}) ${q.options[chosen]}` : chosen}
+          </p>
+          <p class="text-xs sm:text-sm text-emerald-800 dark:text-emerald-300 mb-2">
+            <strong>නිවැරදි පිළිතුර:</strong> (${q.answer}) ${q.options[q.answer]}
+          </p>
+          <p class="text-xs text-slate-600 dark:text-slate-400 bg-white/70 dark:bg-slate-900/60 p-2.5 rounded-lg">
+            ${q.explanation}
+          </p>
+        `;
+        reviewList.appendChild(item);
+      });
+    }
+
+    // Boot Application
+    window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      updateCategoryCounts();
+      buildQuestionSet(false);
+    });
+  </script>
+</body>
+</html>
